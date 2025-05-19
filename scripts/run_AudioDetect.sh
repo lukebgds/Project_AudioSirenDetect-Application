@@ -10,6 +10,6 @@ fi
 source "$VENV_PATH"
 
 echo "Executando main.py"
-python3 main.py
+python3 src/main.py
 
 deactivate
