@@ -4,7 +4,7 @@ from pathlib import Path
 from colorama import Fore, Style
 from spectrogram_generator import generate_mel_spectrogram
 from model_predictor import load_trained_model, predict_image
-from audio_recorder import record_segment
+from audio_capture import record_segment
 
 SAMPLE_RATE = 22050
 DURATION    = 4
