@@ -35,3 +35,12 @@ A execução do projeto é feita por meio do script `run_AudioDetect.sh`, que at
 
 Este projeto serve como base experimental e didática para estudos envolvendo reconhecimento de padrões sonoros com deep learning. Seu uso pode ser estendido para aplicações reais, com possíveis adaptações para outras categorias de sons ou melhorias no desempenho em tempo real.
 
+## Autores
+
+- **Lucas Benício Gusmão da Silva**
+- **Rhyan Carlos da Silva Lima**
+- **Breno Almeida Custódio**
+- **Marcus Eduardo Dias Barbosa**
+- **Luis Gustavo de Albuquerque**
+
+``Todos os Direitos Reservados``
