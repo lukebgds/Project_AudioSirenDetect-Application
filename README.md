@@ -6,7 +6,6 @@ Este repositório contém um projeto acadêmico voltado à detecção de sirenes
 
 Todo o processo é automatizado e apresentado de forma interativa via terminal, com visualização contínua das predições por meio de um dashboard simples.
 
----
 
 ## Lógica Geral em Fluxo
 
@@ -14,8 +13,6 @@ Todo o processo é automatizado e apresentado de forma interativa via terminal, 
 2. **Converter cada segmento em um espectrograma Mel**, uma representação visual que destaca as características espectrais ao longo do tempo.  
 3. **Aplicar um modelo de rede neural convolucional (CNN)** treinado previamente para classificar o espectrograma como contendo ou não uma sirene.  
 4. **Exibir um dashboard em console** que atualiza, a cada novo segmento, a quantidade total de gravações, as últimas predições (classe e confiança) e o status atual (“Sirene Detectada” ou “Tudo normal”).
-
----
 
 ## Estrutura Modular
 
@@ -29,18 +26,19 @@ O projeto está dividido em cinco módulos principais:
 
 A execução do projeto é feita por meio do script `run_AudioDetect.sh`, que ativa automaticamente o ambiente virtual, executa o arquivo `main.py` e encerra o ambiente após a finalização. Isso garante praticidade na inicialização e isolamento adequado do ambiente de dependências.
 
----
 
 ## Observação Final
 
 Este projeto serve como base experimental e didática para estudos envolvendo reconhecimento de padrões sonoros com deep learning. Seu uso pode ser estendido para aplicações reais, com possíveis adaptações para outras categorias de sons ou melhorias no desempenho em tempo real.
 
-## Autores
+### Integrantes do Grupo/Autores:
 
-- **Lucas Benício Gusmão da Silva**
-- **Rhyan Carlos da Silva Lima**
-- **Breno Almeida Custódio**
-- **Marcus Eduardo Dias Barbosa**
-- **Luis Gustavo de Albuquerque**
+1. **Lucas Benício Gusmão da Silva**
+2. **Rhyan Carlos da Silva Lima**
+3. **Breno Almeida Custódio**
+4. **Marcus Eduardo Dias Barbosa**
+5. **Luis Gustavo de Albuquerque**
+- **Turma:** 7MB
+- **Horário:** MANHÂ
 
 ``Todos os Direitos Reservados``
