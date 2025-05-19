@@ -27,6 +27,8 @@ O projeto está dividido em cinco módulos principais:
 - `model_predictor.py`: Carrega o modelo de CNN treinado e realiza a predição das imagens.  
 - `main.py`: Orquestra o fluxo geral da aplicação, capturando áudio, gerando espectrogramas, realizando predições e exibindo o dashboard.
 
+A execução do projeto é feita por meio do script `run_AudioDetect.sh`, que ativa automaticamente o ambiente virtual, executa o arquivo `main.py` e encerra o ambiente após a finalização. Isso garante praticidade na inicialização e isolamento adequado do ambiente de dependências.
+
 ---
 
 ## Observação Final
