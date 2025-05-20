@@ -42,5 +42,6 @@ Este projeto serve como base experimental e didática para estudos envolvendo re
 5. **Luis Gustavo de Albuquerque**
 - **Turma:** 7MB
 - **Horário:** MANHÂ
+- **Curso:** Ciência da Computação
 
 ``Todos os Direitos Reservados``
