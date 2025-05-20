@@ -7,8 +7,8 @@ from model_predictor import load_trained_model, predict_image
 from audio_capture import record_segment
 
 SAMPLE_RATE = 22050
-DURATION    = 4
-CHANNELS    = 1
+DURATION = 4
+CHANNELS = 1
 
 # Caminho do modelo
 MODEL_PATH  = Path("model/cnn_categorical_model_Final.h5")
