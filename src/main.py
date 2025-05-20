@@ -10,25 +10,40 @@ SAMPLE_RATE = 22050
 DURATION    = 4
 CHANNELS    = 1
 
-# Caminho do modelo (constante)
+# Caminho do modelo
 MODEL_PATH  = Path("model/cnn_categorical_model_Final.h5")
 
 def display_dashboard(recording_count, last_predictions):
+    # Limpa o console (funciona tanto no Windows quanto em sistemas Unix)
     os.system('cls' if os.name == 'nt' else 'clear')
-    print(Fore.CYAN + "==================== RELATÓRIO ====================" + Style.RESET_ALL)
-    print(f"Total de gravações: {recording_count}")
-    print(Fore.YELLOW + "\nÚltimos resultados de detecção:" + Style.RESET_ALL)
-    for i, (pred_class, conf, path) in enumerate(last_predictions[-3:], 1):
+
+    # Cabeçalho do relatório
+    print(Fore.CYAN + "====================== RELATÓRIO ======================" + Style.RESET_ALL)
+    print(f"Total de segmentos processados: {recording_count}\n")
+
+    # Exibe, de forma tabular, as últimas 3 predições (ou menos, se ainda não houver 3)
+    print(Fore.YELLOW + "Últimos resultados de detecção:" + Style.RESET_ALL)
+    print("-" * 60)
+    print(f"{'Índice':<8}{'Classe':<15}{'Confiança':<12}{'Arquivo (espectrograma)'}")
+    print("-" * 60)
+    for idx, (pred_class, conf, path) in enumerate(last_predictions[-3:], start=max(1, recording_count - len(last_predictions) + 1)):
         cor_classe = Fore.GREEN if pred_class == 'yes_siren' else Fore.YELLOW
-        print(f"\nFaixa {i}: {cor_classe}{pred_class}{Style.RESET_ALL}")
-        print(f"Confiança: {conf:.2f}")
-        print(f"Espectrograma salvo em: {path}")
-    print("\n==============================")
-    estado    = 'Sirene Detectada' if last_predictions[-1][0] == 'yes_siren' else 'Tudo normal'
-    cor_estado = Fore.GREEN if last_predictions[-1][0] == 'yes_siren' else Fore.YELLOW
-    print(f"Estado atual: {cor_estado + estado}{Style.RESET_ALL}")
-    print(f"Confiança do último segmento: {last_predictions[-1][1]:.2f}")
-    print("\nPressione Ctrl+C para interromper a gravação.")
+        classe_exib = f"{cor_classe}{pred_class}{Style.RESET_ALL}"
+        print(f"{idx:<8}{classe_exib:<15}{conf:<12.2f}{path.name}")
+    print("-" * 60)
+
+    # Estado atual (baseado no último segmento)
+    if last_predictions:
+        ultima_classe, ultima_conf, _ = last_predictions[-1]
+        estado_texto = "Sirene Detectada" if ultima_classe == 'yes_siren' else "Tudo normal"
+        estado_cor   = Fore.GREEN if ultima_classe == 'yes_siren' else Fore.YELLOW
+
+        print(f"\nEstado atual: {estado_cor + estado_texto}{Style.RESET_ALL}")
+        print(f"Confiança do último segmento: {ultima_conf:.2f}")
+    else:
+        print("\nAinda não há predições para exibir.")
+
+    print("\n(Pressione Ctrl+C para interromper a gravação.)")
 
 def main():
     if not MODEL_PATH.exists():
