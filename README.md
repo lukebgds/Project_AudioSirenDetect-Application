@@ -4,7 +4,7 @@
 
 Este repositório contém um projeto acadêmico voltado à detecção de sirenes em tempo real utilizando redes neurais convolucionais (CNNs). O sistema foi desenvolvido em Python, com foco na modularização do código e clareza na execução dos processos. Ele captura segmentos de áudio, transforma-os em espectrogramas Mel, e utiliza um modelo treinado para classificar a presença ou ausência de sirenes. 
 
-Todo o processo é automatizado e apresentado de forma interativa via terminal, com visualização contínua das predições por meio de um dashboard simples.
+**Todo o processo é automatizado e apresentado de forma interativa via terminal, com visualização contínua das predições por meio de um dashboard simples.**
 
 
 ## Lógica Geral em Fluxo
@@ -25,7 +25,6 @@ O projeto está dividido em cinco módulos principais:
 - [`main.py`](https://github.com/lukebgds/Project_AudioSirenDetect-CNN/blob/main/src/main.py): Orquestra o fluxo geral da aplicação, capturando áudio, gerando espectrogramas, realizando predições e exibindo o dashboard.
 
 A execução do projeto é feita por meio do script [`run_AudioDetect.sh`](https://github.com/lukebgds/Project_AudioSirenDetect-CNN/blob/main/scripts/run_AudioDetect.sh), que ativa automaticamente o ambiente virtual, executa o arquivo `main.py` e encerra o ambiente após a finalização. Isso garante praticidade na inicialização e isolamento adequado do ambiente de dependências.
-
 
 ## Observação Final
 
