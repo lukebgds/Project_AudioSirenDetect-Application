@@ -1,4 +1,4 @@
-# Project_AudioSirenDetect-CNN
+# Project_AudioSirenDetect-RealtimeSystem
 
 ## Introdução
 
