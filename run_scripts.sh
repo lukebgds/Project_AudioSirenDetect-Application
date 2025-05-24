@@ -7,6 +7,7 @@ if [[ ! -f "$VENV_PATH" ]]; then
     exit 1
 fi
 
+echo "Ambiente virtual encontrado"
 source "$VENV_PATH"
 
 echo "Executando main.py"
