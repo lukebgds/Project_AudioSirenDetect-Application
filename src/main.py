@@ -11,7 +11,7 @@ DURATION = 4
 CHANNELS = 1
 
 # Caminho do modelo
-MODEL_PATH  = Path("model/cnn_categorical_model_Final.h5")
+MODEL_PATH  = Path("model/modelo_multiclasse_siren.h5")
 
 def display_dashboard(recording_count, last_predictions):
     # Limpa o console (funciona tanto no Windows quanto em sistemas Unix)
