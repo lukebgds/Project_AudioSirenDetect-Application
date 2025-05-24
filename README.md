@@ -1,4 +1,4 @@
-# Project_AudioSirenDetect-RealtimeSystem
+# Project_AudioSirenDetect-Application
 
 ## Introdução
 
