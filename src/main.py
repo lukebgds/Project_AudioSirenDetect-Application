@@ -15,9 +15,6 @@ CHANNELS = 1
 # Caminho do modelo
 MODEL_PATH = Path("modelo_multiclasse_siren.h5")
 
-# Mapeamento de classes
-CLASS_NAMES = ['no_siren', 'yes_siren']
-
 def clear_console():
     """Limpa o console dependendo do sistema operacional."""
     os.system('cls' if os.name == 'nt' else 'clear')
