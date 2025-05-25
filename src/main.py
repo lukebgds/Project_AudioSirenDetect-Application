@@ -13,7 +13,7 @@ DURATION = 4
 CHANNELS = 1
 
 # Caminho do modelo
-MODEL_PATH = Path("modelo_multiclasse_siren.h5")
+MODEL_PATH = Path("model/cnn_categorical_model_Final.h5")
 
 def clear_console():
     """Limpa o console dependendo do sistema operacional."""
