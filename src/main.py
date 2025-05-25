@@ -2,6 +2,7 @@ import os
 import time
 import sounddevice as sd
 from pathlib import Path
+from collections import deque
 from colorama import Fore, Style
 from spectrogram_generator import generate_mel_spectrogram
 from model_predictor import load_trained_model, predict_image
@@ -17,24 +18,29 @@ MODEL_PATH = Path("modelo_multiclasse_siren.h5")
 # Mapeamento de classes
 CLASS_NAMES = ['no_siren', 'yes_siren']
 
-def display_dashboard(recording_count, last_predictions):
-   
-    os.system('cls' if os.name == 'nt' else 'clear')  # Limpa o console
+def clear_console():
+    """Limpa o console dependendo do sistema operacional."""
+    os.system('cls' if os.name == 'nt' else 'clear')
 
-    print(Fore.CYAN + "==================== RELATÓRIO ====================" + Style.RESET_ALL)
-    print(f"Total de gravações: {recording_count}")
+def format_detection_queue(detection_queue):
+    """Formata a fila de detecção para exibição com cores."""
+    formatted = []
+    for detection in detection_queue:
+        if detection:
+            formatted.append(f"{Fore.GREEN}True{Style.RESET_ALL}")
+        else:
+            formatted.append(f"{Fore.YELLOW}False{Style.RESET_ALL}")
+    return formatted
 
-    # Exibir os resultados das últimas 3 faixas
-    print(Fore.YELLOW + "\nÚltimos resultados de detecção:" + Style.RESET_ALL)
-    for i, (pred_class, conf, path) in enumerate(last_predictions[-3:], 1):
-        print(f"\nFaixa {i}: {Fore.GREEN if pred_class == 'yes_siren' else Fore.YELLOW}{pred_class}{Style.RESET_ALL}")
-        print(f"Confiança: {conf:.2f}")
-        print(f"Espectrograma salvo em: {path}")
-
-    print("\n==============================")
-    print(f"Estado atual: {Fore.GREEN + 'Sirene Detectada' if last_predictions[-1][0] == 'yes_siren' else Fore.YELLOW + 'Tudo normal'}{Style.RESET_ALL}")
-    print(f"Confiança do último segmento: {last_predictions[-1][1]:.2f}")
-    print("\nPressione Ctrl+C para interromper a gravação.")
+def display_dashboard(detection_queue, confidence, current_status):
+    """Exibe o dashboard com a fila de detecção, confiança e estado atual."""
+    clear_console()
+    formatted_queue = format_detection_queue(detection_queue)
+    print(f"{Fore.CYAN}======================= RELATÓRIO ======================={Style.RESET_ALL}")
+    print(f"{Fore.WHITE}Confiança (média do último segmento): {confidence:.2f}{Style.RESET_ALL}")
+    print(f"{Fore.GREEN if current_status == 'Sirene Detectada!' else Fore.YELLOW}Estado Atual: {current_status}{Style.RESET_ALL}")
+    print(f"{Fore.WHITE}Resultados das últimas 3 detecções: [{', '.join(formatted_queue)}]{Style.RESET_ALL}")
+    print(f"{Fore.CYAN}========================================================={Style.RESET_ALL}")
 
 def main():
     # Carregar o modelo
@@ -53,8 +59,10 @@ def main():
 
     print("Iniciando gravação. Pressione Ctrl+C para parar.")
 
+    # Fila para armazenar as últimas 3 detecções
+    detection_queue = deque(maxlen=3)
+
     recording_count = 1
-    last_predictions = []  # Para armazenar os resultados das últimas predições
 
     try:
         while True:
@@ -74,14 +82,20 @@ def main():
             # Realizar inferência no espectrograma gerado
             predicted_class, confidence = predict_image(model, save_path)
 
-            # Armazenar a predição e a confiança
-            last_predictions.append((predicted_class, confidence, save_path))
+            # Verifica se a classe detectada é uma sirene
+            is_siren = predicted_class == 'yes_siren'
 
-            # Exibir o dashboard atualizado
-            display_dashboard(recording_count, last_predictions)
+            # Atualiza a fila com a nova detecção
+            detection_queue.append(is_siren)
+
+            # Validação com base nas últimas 3 detecções
+            current_status = "Sirene Detectada!" if detection_queue.count(True) >= 2 else "Tudo Normal..."
+
+            # Atualiza o dashboard
+            display_dashboard(detection_queue, confidence, current_status)
 
             recording_count += 1
-            time.sleep(1)  # Atraso de 1 segundo para a próxima gravação
+            time.sleep(1)  # Pequena pausa para a interface ser legível
 
     except KeyboardInterrupt:
         print("Gravação interrompida pelo usuário.")
