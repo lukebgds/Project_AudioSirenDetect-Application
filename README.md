@@ -7,7 +7,7 @@ Este repositório contém um projeto acadêmico voltado à detecção de sirenes
 **Todo o processo é automatizado e apresentado de forma interativa via terminal, com visualização contínua das predições por meio de um dashboard simples.**
 
 > **Observação:** O processo completo de **treinamento do modelo utilizado neste sistema** está documentado separadamente, no repositório complementar:  
-> 🔗 [Project_AudioSirenDetect-ModelTraining](https://github.com/lukebgds/Project_AudioSirenDetect-ModelTraining)
+> 🔗 [Project_AudioSirenDetect-ModelTraining]()
 
 ## Lógica Geral em Fluxo
 
