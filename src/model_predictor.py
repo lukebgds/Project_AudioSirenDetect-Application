@@ -9,8 +9,8 @@ def load_trained_model(model_path):
 
 def predict_image(model, img_path):
 
-    img_final = preprocess_image(img_path)
-    predictions = model.predict(img_final)
+    img_array = preprocess_image(img_path)
+    predictions = model.predict(img_array)
     predicted_class = np.argmax(predictions)
     confidence = float(predictions[0][predicted_class])
     return CLASS_NAMES[predicted_class], confidence
