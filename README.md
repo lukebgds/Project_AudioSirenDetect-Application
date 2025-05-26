@@ -9,6 +9,10 @@ Este repositório contém um projeto acadêmico voltado à detecção de sirenes
 > **Observação:** O processo completo de **treinamento do modelo utilizado neste sistema** está documentado separadamente, no repositório complementar:  
 > 🔗 [Project_AudioSirenDetect-ModelTraining](https://github.com/lukebgds/Project_AudioSirenDetect-ModelTraining)
 
+### Ambiente
+- Python 3.11.2
+- Veja [`requirements.txt`](https://github.com/lukebgds/Project_AudioSirenDetect-Application/blob/main/requirements.txt) para as dependências
+
 ## Lógica Geral em Fluxo
 
 1. **Capturar segmentos de áudio** de forma contínua, em intervalos fixos de quatro segundos.  
@@ -27,10 +31,6 @@ O projeto está dividido em cinco módulos principais:
 - [`main.py`](https://github.com/lukebgds/Project_AudioSirenDetect-CNN/blob/main/src/main.py): Orquestra o fluxo geral da aplicação, capturando áudio, gerando espectrogramas, realizando predições e exibindo o dashboard.
 
 A execução do projeto é feita por meio do script [`run_AudioDetect.sh`](https://github.com/lukebgds/Project_AudioSirenDetect-Application/blob/main/run_AudioDetect.sh.sh), que ativa automaticamente o ambiente virtual, executa o arquivo `main.py` e encerra o ambiente após a finalização. Isso garante praticidade na inicialização e isolamento adequado do ambiente de dependências.
-
-### Ambiente
-- Python 3.11.2
-- Veja [`requirements.txt`](https://github.com/lukebgds/Project_AudioSirenDetect-Application/blob/main/requirements.txt) para as dependências
 
 ## Observação Final
 
