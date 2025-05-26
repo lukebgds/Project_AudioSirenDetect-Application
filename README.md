@@ -32,9 +32,15 @@ O projeto está dividido em cinco módulos principais:
 
 A execução do projeto é feita por meio do script [`run_AudioDetect.sh`](https://github.com/lukebgds/Project_AudioSirenDetect-Application/blob/main/run_AudioDetect.sh.sh), que ativa automaticamente o ambiente virtual, executa o arquivo `main.py` e encerra o ambiente após a finalização. Isso garante praticidade na inicialização e isolamento adequado do ambiente de dependências.
 
+> **Observação:** O script `run_AudioDetect.sh`, precisa ser executado por algum terminal, linha de comando ou automação!
+
 ## Observação Final
 
-Este projeto serve como base experimental e didática para estudos envolvendo reconhecimento de padrões sonoros com deep learning. Seu uso pode ser estendido para aplicações reais, com possíveis adaptações para outras categorias de sons ou melhorias no desempenho em tempo real.
+Este projeto foi desenvolvido com fins acadêmicos e exploratórios, servindo como base experimental para estudos em **reconhecimento de padrões sonoros utilizando deep learning.**
+
+Seu código modular e de fácil extensão permite que a arquitetura seja adaptada para outras categorias de sons, como alarmes industriais, vozes humanas ou sons ambientais específicos. Além disso, o sistema pode ser aprimorado com técnicas mais avançadas de inferência em tempo real, compressão de modelos, otimização de latência, ou mesmo integração com sistemas embarcados e dispositivos IoT.
+
+Espera-se que este projeto sirva como ponto de partida tanto para aplicações práticas quanto para o aprofundamento em tópicos como **processamento de áudio, visão computacional aplicada a sinais acústicos, e inteligência artificial embarcada.**
 
 ---
 
