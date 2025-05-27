@@ -24,11 +24,10 @@ Este repositório contém um projeto acadêmico voltado à detecção de sirenes
 
 O projeto está dividido em cinco módulos principais:
 
-- [`audio_capture.py`](https://github.com/lukebgds/Project_AudioSirenDetect-CNN/blob/main/src/audio_capture.py): Responsável por capturar segmentos de áudio com duração fixa, prontos para serem processados.  
 - [`spectrogram_generator.py`](https://github.com/lukebgds/Project_AudioSirenDetect-CNN/blob/main/src/spectrogram_generator.py): Responsável pela geração e salvamento dos espectrogramas Mel a partir do áudio capturado.  
 - [`image_preprocessor.py`](https://github.com/lukebgds/Project_AudioSirenDetect-CNN/blob/main/src/image_preprocessor.py): Realiza o pré-processamento das imagens dos espectrogramas para uso no modelo.  
 - [`model_predictor.py`](https://github.com/lukebgds/Project_AudioSirenDetect-CNN/blob/main/src/model_predictor.py): Carrega o modelo de CNN treinado e realiza a predição das imagens.  
-- [`main.py`](https://github.com/lukebgds/Project_AudioSirenDetect-CNN/blob/main/src/main.py): Orquestra o fluxo geral da aplicação, capturando áudio, gerando espectrogramas, realizando predições e exibindo o dashboard.
+- [`main.py`](https://github.com/lukebgds/Project_AudioSirenDetect-CNN/blob/main/src/main.py): Orquestra o fluxo geral da aplicação, capturando capturar segmentos de áudio com duração fixa, prontos para serem processados, gerando espectrogramas, realizando predições e exibindo o dashboard.
 
 A execução do projeto é feita por meio do script [`run_AudioDetect.sh`](https://github.com/lukebgds/Project_AudioSirenDetect-Application/blob/main/run_AudioDetect.sh.sh), que ativa automaticamente o ambiente virtual, executa o arquivo `main.py` e encerra o ambiente após a finalização. Isso garante praticidade na inicialização e isolamento adequado do ambiente de dependências.
 
